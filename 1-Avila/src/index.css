@@ -149,6 +149,7 @@ button:focus-visible {
   top: 0 !important;
   padding: 0px 20px 0px 20px !important;
   border-radius: 10px !important;
+  z-index: 2;
 }
 
 
@@ -182,6 +183,10 @@ button:focus-visible {
   background-color: #5a5a5a !important;
 }
 
+#calc-button-first-row :nth-child(2){
+  background-color: crimson !important;
+}
+
 #calc-button-row :last-child {
   background-color: #9d9d9d !important;
   color: #FFFFF0;
@@ -213,8 +218,8 @@ button:focus-visible {
   display: flex;
   justify-content: end;
   height: 40px;
-  padding: 5px 10px;
-  border-radius: 10px;
+  padding: 10px;
+  border-radius: 0px 0px 0px 0px;
   background-color: #f0f0f0;
   width: 307px;
 }
@@ -273,4 +278,40 @@ strong {
   color: #e8e8e8;
 }
 
+/* Hobbies */
+.hobbies-row {
+  position: fixed;
+  width: 100vw
+}
 
+.first-column-stack {
+  width: 100%;
+  padding: 25vh 25vh 25vh 25vh;
+
+}
+.hobbies-second-column {
+  background-color: #535bf2;
+}
+
+.hobbies-heading{
+  margin-bottom: 30px;
+}
+
+.hobbies-button {
+  display: flex;
+  text-align: start !important;
+  background-color: #fff !important;
+  width: 250px;
+}
+
+.hobby-display {
+  display: block;
+  height: 100vh;
+  padding: 2em;
+  margin: 0vw  7vw 0vw 16px;
+  background-color: #171A21;
+}
+
+.hobbies-column {
+  width: 10%;
+}

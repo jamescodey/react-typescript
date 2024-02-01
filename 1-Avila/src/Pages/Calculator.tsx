@@ -9,25 +9,31 @@ export default function Calculator() {
   const [displayValue, setDisplayValue] = useState<string>("");
   const [answer, setAnswer] = useState<string>("");
   const [previousDisplayValue, setPreviousDisplayValue] = useState<string>("");
+  const [operationClicked, setOperationClicked] = useState(false);
+  const operations = ['**', '/', '+', '-', '.'];
 
   const handleData = (data: string): void => {
     switch (data) {
       case "C":
         setDisplayValue("");
         setPreviousDisplayValue("");
+        setOperationClicked(false);
         break;
-      case "<":
+      case "Del":
         displayValue === ""
           ? setDisplayValue("")
           : setDisplayValue(displayValue.slice(0, -1))
+        displayValue === ""
         break;
       case "=":
         try {
           setDisplayValue(eval(displayValue));
           setPreviousDisplayValue(displayValue);
           setAnswer(eval(displayValue));
+          setOperationClicked(true);
         } catch (error) {
-          setDisplayValue("Error");
+          setDisplayValue((eval(displayValue.slice(0, -1))));
+          setOperationClicked(true);
         }
         break;
 
@@ -41,9 +47,26 @@ export default function Calculator() {
       default:
         displayValue === "Error"
           ? setDisplayValue("" + data)
-          : displayValue === answer
-          ? setDisplayValue("" + data)
-          : setDisplayValue(displayValue + data);
+          : displayValue === ""
+              ? operations.includes(data)
+                  ? setDisplayValue('')
+                  : setDisplayValue(displayValue + data)
+              : displayValue === answer
+                  ? setDisplayValue("" + data)
+                  : operations.includes(data)
+                      ? operationClicked
+                          ? (setDisplayValue(displayValue.slice(0, -1) + data),
+                            setOperationClicked(true))
+                          : (setDisplayValue(displayValue + data), 
+                            setOperationClicked(true))
+                      : displayValue == '0'
+                          ? (setDisplayValue("" + data),
+                            setOperationClicked(false))
+                          : displayValue == '00'
+                              ? (setDisplayValue("" + data),
+                                setOperationClicked(false))
+                              : (setDisplayValue(displayValue + data),
+                                setOperationClicked(false))
         break;
     }
   };
@@ -53,7 +76,7 @@ export default function Calculator() {
       <NavBar />
       <Container className="calculator-body">
         <Stack gap={3} className="calculator-main-stack">
-          <Stack gap={2} className="calculator-text-stack">
+          <Stack gap={0} className="calculator-text-stack">
             <div className="cashew">
               <text>Cashew 69695EX-PLUS</text>
             </div>
@@ -64,7 +87,7 @@ export default function Calculator() {
             <ButtonSet
               id="calc-button-first-row"
               value1="C"
-              value2="<"
+              value2="Del"
               value3="%"
               value4="/"
               dataFromButton={handleData}
