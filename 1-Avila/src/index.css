@@ -145,7 +145,7 @@ button:focus-visible {
 
 .navbar {
   justify-content: center !important;
-  position: fixed;
+  position: sticky !important;
   top: 0 !important;
   padding: 0px 20px 0px 20px !important;
   border-radius: 10px !important;
@@ -279,30 +279,6 @@ strong {
 }
 
 /* Hobbies */
-.hobbies-row {
-  position: fixed;
-  width: 100vw
-}
-
-.first-column-stack {
-  width: 100%;
-  padding: 25vh 25vh 25vh 25vh;
-
-}
-.hobbies-second-column {
-  background-color: #535bf2;
-}
-
-.hobbies-heading{
-  margin-bottom: 30px;
-}
-
-.hobbies-button {
-  display: flex;
-  text-align: start !important;
-  background-color: #fff !important;
-  width: 250px;
-}
 
 .hobby-display {
   display: block;
@@ -314,4 +290,81 @@ strong {
 
 .hobbies-column {
   width: 10%;
+}
+
+.hobbies-content {
+  margin: 0% 0% 0% 5%;
+}
+
+.hobbies-content-div{
+  height: 80vh;
+  margin-bottom: 20px;
+  background-color: #e0e0e0 !important;
+}
+.side-button {
+  padding: 5% 5% 5% 0% !important;
+  margin: 3% 0% 3% 0% !important;
+  text-align: left !important;
+  background-color: #fff !important;
+  border: #fff!important;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #fff;
+  padding: 5px;
+  position: fixed;
+  /* Add other sidebar styles as needed */
+}
+
+.sidebar-heading {
+  padding-top: 15%;
+  margin-top: 25%;
+}
+
+.sidebar-heading:hover {
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  /* Apply styles for screens wider than 767 pixels (desktop) */
+  .sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 20vw !important;
+  }
+  .content {
+    width: 60vw !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .sidebar {
+    display: inline-block !important;
+    position: static;
+    top: 0;
+    height: auto;
+    width: 100%;
+  }
+  .app-container {
+    display: inline-block;
+  }
+}
+
+
+.app-container {
+  display: flex;
+  width: 100%;
+}
+
+.content {
+  padding: 2%;
+  border-style: dotted;
+  /* Add other main content styles as needed */
 }

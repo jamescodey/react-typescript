@@ -1,36 +1,60 @@
 //import React from 'react'
-import Stack from "react-bootstrap/Stack";
-import { Row, Col, Container, Button } from "react-bootstrap";
+import { Container, Button, Stack, Row } from "react-bootstrap";
 import NavBar from "../Components/NavBar";
 
 export default function Hobbies() {
+
+  const handleClick = (target: string) => {
+    const targetDiv:HTMLElement | null = document.getElementById(target);
+
+    if (targetDiv) {
+      targetDiv.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <>
-      
-      <Container fluid className="hobbies-body">
       <NavBar />
-        <Row xs={1} md={2} className="hobbies-row">
-          <Col className="hobbies-column">
-              <Stack gap={3} className="first-column-stack">
-                <h1 className="hobbies-heading">My Hobbies</h1>
-                <Button variant="light" className="hobbies-button">First Hobby</Button>
-                <Button variant="light" className="hobbies-button">Second Hobby</Button>
-                <Button variant="light" className="hobbies-button">Third Hobby</Button>
-                <Button variant="light" className="hobbies-button">Fourth Hobby</Button>
-                <Button variant="light" className="hobbies-button">Fifth Hobby</Button>
-              </Stack>
-          </Col>
-          <Col>
-            <div className="hobbies-second-column">
-              <Stack gap={3}>
-                <h2 className="hobby-display">Hobby 1</h2>
-                <h2 className="hobby-display">Hobby 2</h2>
-                <h2 className="hobby-display">Hobby 3</h2>
-                <h2 className="hobby-display">Hobby 4</h2>
-                <h2 className="hobby-display">Hobby 5</h2>
+      <Container fluid className="app-container">
+        <Row xs={1} md={2}>
+          <aside className="sidebar">
+            <Stack>
+              <h1 className="sidebar-heading" onClick={() => handleClick('landing')}>私の趣味</h1>
+              <Button variant="light" className="side-button" onClick={() => handleClick('firstHobby')}>
+                Reading
+              </Button>
+              <Button variant="light" className="side-button" onClick={() => handleClick('secondHobby')}>
+                Instruments
+              </Button>
+              <Button variant="light" className="side-button" onClick={() => handleClick('thirdHobby')}>
+                Sports
+              </Button>
+              <Button variant="light" className="side-button" onClick={() => handleClick('fourthHobby')}>
+                Computer Games
+              </Button>
+            </Stack>
+          </aside>
+          <main className="content">
+            <div className="hobbies-content">
+              <Stack>
+                <div className="hobbies-content-div" id="landing">
+                  <p>This is your main content.</p>
+                </div>
+                <div className="hobbies-content-div" id="firstHobby">
+                  <p>This is your main content.</p>
+                </div>
+                <div className="hobbies-content-div" id="secondHobby">
+                  <p>This is your main content.</p>
+                </div>
+                <div className="hobbies-content-div" id="thirdHobby">
+                  <p>This is your main content.</p>
+                </div>
+                <div className="hobbies-content-div" id="fourthHobby">
+                  <p>This is your main content.</p>
+                </div>
               </Stack>
             </div>
-          </Col>
+          </main>
         </Row>
       </Container>
     </>
