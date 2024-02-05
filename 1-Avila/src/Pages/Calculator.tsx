@@ -72,7 +72,7 @@ export default function Calculator() {
   };
 
   return (
-    <div>
+    <div className="fade-in">
       <NavBar />
       <Container className="calculator-body">
         <Stack gap={3} className="calculator-main-stack">

@@ -32,18 +32,20 @@ const UserListPage: React.FC = () => {
 
   return (
     <>
-      <NavBar />
-      <div>
-        <div className="user-list-heading">
-          <Heading heading="User List" />
+      <div className="fade-in">
+        <NavBar />
+        <div>
+          <div className="user-list-heading">
+            <Heading heading="User List" />
+          </div>
+          <Row xs="1" md="2" lg="3" className="justify-content-md-center">
+            {users.map((user) => (
+              <Col>
+                <JSONCard user={user} />
+              </Col>
+            ))}
+          </Row>
         </div>
-        <Row xs="1" md="2" lg="3" className="justify-content-md-center">
-          {users.map((user) => (
-            <Col>
-              <JSONCard user={user} key={user} />
-            </Col>
-          ))}
-        </Row>
       </div>
     </>
   );
