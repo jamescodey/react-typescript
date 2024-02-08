@@ -201,11 +201,11 @@ button:focus-visible {
 }
 
 #calc-button-first-row :first-child{
-  background-color: #5a5a5a !important;
+  background-color: crimson !important;
 }
 
 #calc-button-first-row :nth-child(2){
-  background-color: crimson !important;
+  background-color: #5a5a5a !important;
 }
 
 #calc-button-row :last-child {
